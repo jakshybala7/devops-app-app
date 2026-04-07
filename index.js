@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/health', (req, res) => {
-  res.send('OK v3');
+  res.send('OK v4');
 });
 
 app.listen(3000, () => {

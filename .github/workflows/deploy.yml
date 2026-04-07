@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Build image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-app .
+        run: docker build --no-cache -t ${{ secrets.DOCKER_USERNAME }}/devops-app .
 
       - name: Login Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
@@ -29,5 +29,5 @@ jobs:
           script: |
             cd ~/devops-app
             docker compose pull
-            docker compose up -d
+            docker compose up -d --force-recreate
             docker image prune -f

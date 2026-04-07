@@ -1,6 +1,8 @@
 version: '3'
 services:
   app:
-    build: .
+    image: dockeruser345543/devops-app:latest
+    container_name: devops-app
+    restart: always
     ports:
       - "3000:3000"
